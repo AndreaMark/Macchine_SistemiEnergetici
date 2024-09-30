@@ -1,0 +1,99 @@
+\documentclass[a4paper, 15pt]{article}
+\usepackage[left=0.85in, right=0.85in, top=0.5in, bottom=0.95in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[none]{hyphenat} % no sillabazione 
+\usepackage{multicol} %testo su più colonne
+\usepackage{enumerate}
+\usepackage{mdwlist} %suspend enumerate \suspend{} \resume{}
+\usepackage{lipsum} %testo random per verifica \lipsum
+\usepackage{graphicx, nicefrac}
+\usepackage{wrapfig2}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm} %teoremi e dimostrazioni e definizioni
+\usepackage{cases}
+\usepackage{gensymb} %simboli come ° = \degree  etc etc
+\usepackage{cancel} %permette di fare semplificazioni utilizzando il comando \cancel{expression}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,    
+	urlcolor=blue,
+	%pdfpagemode=FullScreen, %il pdf generato non si avvia a schermo intero
+}
+\urlstyle{same}
+\usepackage{changepage}
+\usepackage{lastpage, epstopdf}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+%\usepackage{background} %non utilizza lo sfondo con "draft"
+\usepackage{color} % testo colorato \textcolor{'ColorCode'}{'testo'}
+\usepackage{setspace} % in questo modo posso settare lo spoazio dell'indice \begin{spacing}{0.95}
+\usepackage{changepage}
+\usepackage{lastpage, epstopdf}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+%\usepackage{background}
+\usepackage{tikz} %disegni e mappe
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows,decorations.markings,arrows.meta, decorations.text}
+\raggedbottom
+\setlength{\parindent}{0pt}
+%========TEOREMI========%
+\newtheorem*{thm}{Teorema}
+\newtheorem*{en}{Enunciato}
+\newtheorem*{definizione}{Definizione}
+\newtheorem*{cor}{Corollario}
+
+
+
+%========OPERATORI========%
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\im}{Im}
+
+
+
+%=======BODY=======%
+\title{Macchine e Sistemi energetici, \\ Lezioni Modulo 2}
+\author{A cura di Andrea Marchegiani}
+\date{}
+
+\begin{document}
+	%\begin{adjustwidth}{2in}{}
+	\maketitle
+	\setcounterpageref{secnumdepth}{0}	
+	\tableofcontents 
+	
+\newpage
+\input{Parte1/Richiami_Termodinamica}
+
+\newpage
+ \input{Parte2/Impianti_Turbogas}
+
+\newpage
+\input{Parte3/Impianti_A_Vapore}
+
+\newpage
+\input{Parte4/Cicli_combinati}	
+
+\newpage
+\input{Parte5/Cicli_inversi}
+	
+
+%DA DECOMMENTARE PER AVERE LA VERSIONE STAMPABILE A DUE PAGINE 	
+%	\newpage
+%		\null
+%		\vfill
+%\begin{tcolorbox}[height=4.5cm]
+%	This box has a height of 4.5cm.
+%\end{tcolorbox}
+%		
+	
+\end{document}

@@ -1,0 +1,703 @@
+\part{Impianti Turbina a Gas}
+\begin{adjustwidth}{2in}{}
+	Gli impianti turbogas sono economici, compatti, di facile installazione, non necessitano di circuiti d'acqua e rendono possibile una veloce regolazione della potenza. \newline 
+	
+	Il circuito elementare è formato da due macchine rotanti, un compressione ed un turboespansore generalmente assiali, collegati tra loro e con l'utilizzatore. 
+	
+	DISEGNO IMPIANTO
+	\begin{itemize}		
+		\item Le trasformazioni 12 e 34 possono essere considerate adiabatiche perché avvengono entrambe in turbina, il fluido è caratterizzato da un basso tempo di permanenza e le superfici a contatto (le palette) sono poco estese e non favoriscono lo scambio termico. 
+		
+		\item La trasformazione 23 è un'isobara che avviene in una camera di combustione: un sistema a pareti indeformabili in cui non c'è alcuna possibilità che il fluido al suo interno compia lavoro. 
+		
+		\item Il compressore $C$ è una macchina operatrice, significa che una parte del lavoro estratto in turbina $T$ viene usata per muoverlo. 
+	\end{itemize} 
+	
+	\vspace{0.5cm}
+	
+	Si vede immediatamente che un impianto turbogas così composto costituisce uno psudociclo, o ciclo aperto, si può così costituire in impianto a circuito chiuso ( con scambiatori di calore) da usare come riferimento di ciclo ideale per effettuare tutte le considerazioni termodinamiche del caso. 
+	
+	DISEGNO IMPIANTO IDEALE 
+	
+	Il ciclo termodinamico di riferimento per un impianto turbina a gas è il ciclo Joule - Brayton
+	
+	DIAGRAMMI
+	
+	Poiché $dh = c_PdT$, essendo per flusso ideale $c_P = cost$ mentre per il flusso limite nell'intervallo di variabilità delle temperature di operazione $(300\div1300)\degree C$ il $c_P$ varia molto poco, è possibile far combaciare i diagramma TS ed HS. \newline 
+	
+	Il ciclo reale, considerando le perdite di carico in aspirazione dovute ai filtri ed in uscita dovute all'impianto di trattamento dei fumi, nonché ad una camera di combustione non perfettamente adiabatica, si può scrivere 
+	
+	DIAGRAMMA 
+\end{adjustwidth}
+
+\section{Analisi Impiantistica $\eta\& l$}
+\subsection{Rendimento}
+\begin{adjustwidth}{2in}{}
+	Per il ciclo ideale si può scrivere 
+	\[\eta_{id} = 1- \dfrac{q_2}{q_1}\]
+	Poiché 
+	\[\begin{cases}
+		q_2 - c_P(T_4-T_1) \\
+		q_1 = c_P(T_3-T_2)		
+	\end{cases}\]
+	E $c_P = cost$, si può scrivere 
+	\[\eta_{id} = 1- \dfrac{T_4-T_1}{T_3-T_2} = 1-\dfrac{T_1}{T_2} \cdot \dfrac{\dfrac{T_4}{T_1} -1}{\dfrac{T_3}{T_2}-1} = 1-\dfrac{T_1}{T_2} \cdot \dfrac{\dfrac{T_4}{T_3}\dfrac{T_3}{T_1}-1}{\dfrac{T_1}{T_2}\dfrac{T_3}{T_1}-1}\]
+	Ricordando che 
+	\[\dfrac{T_3}{T_4} = \dfrac{T_2}{T_1} = \left(\dfrac{P_2}{P_1}\right)^{k-1\over k} =  \beta^\varepsilon\qquad\dfrac{T_3}{T_1}=\tau\]
+	Allora si arriva a 
+	
+	\begin{equation} \label{eq:2.1}
+		\boxed{\eta_{id} = 1-\dfrac{1}{\beta^\varepsilon}}
+	\end{equation}
+	
+	In sede ideale l'unico contributo sul rendimento è dato dal rapporto di compressione.
+	
+	GRAFICO
+	
+	L'andamento del rendimento in funzione del rapporto di compressione è logaritmico, sta a significare che il rapporto $\nicefrac{\Delta \eta}{\eta}$ e quindi l'incremento di efficienza, decresce al crescere di $\beta$. 
+\end{adjustwidth}
+
+\subsection{Lavoro specifico}
+\begin{adjustwidth}{2in}{}
+	\[l = q_1-q_2\]
+	
+	DIsegno
+	
+	Alzando $T_3$ l'area sottesa al ciclo aumenta e quindi non può che aumentare anche il lavoro specifico, perciò
+	\[l = f(\beta, T)\]
+	Nello specifico
+	\[l = c_P(T_3-T_2) - c_P(T_4-T_1)\]
+	Riscrivendolo come parametro adimensionale
+	\[\dfrac{l}{c_PT_1} = \dfrac{T_3}{T_1}-\dfrac{T_2}{T_1}-\underbrace{\dfrac{T_4}{T_1}}_{{T_4\over T_3}\cdot{T_3\over T_1}} = 1+\tau+\beta^\varepsilon - \dfrac{\tau}{\beta^\varepsilon}\]
+	Con lo scopo di massimizzare il lavoro specifico si ottengono due radici all'equazione proposta:
+	\[\begin{aligned}
+		\begin{cases}
+			l=0\quad  \Leftrightarrow \quad  \tau = \beta^\varepsilon \Rightarrow \beta = \tau^{1\over\varepsilon} \\
+			l=0 \quad \Leftrightarrow \quad \beta = 1
+		\end{cases}
+	\end{aligned}\]
+	
+	DISEGNO
+	
+	\begin{itemize}
+		\item Per $\beta=1$ il ciclo degenera sul riscaldamento e sul raffreddamento dello stesso calore: $l=0$
+		\item Per $\beta = \tau^{1\over\varepsilon}$ al fluido non viene più fornita energia termica: la sola compressione permette al fluido di raggiungere la temperatura massima, tutto il lavoro che si fornisce al fluido viene utilizzato per la compressione. 
+		\[T_2^{*II} = T_3 = T_1\beta^\varepsilon \rightarrow \beta^\varepsilon = \tau \Rightarrow \beta = \tau^{1\over\varepsilon} \Rightarrow l=0\]
+	\end{itemize}
+	Dato che sono stati individuati due zeri della funzione lavoro, per il teorema di Rolle esisterà necessariamente un massimo compreso tra questi, per cui, derivando, si ottiene 
+	\[\dfrac{d}{d\beta}\left(\dfrac{l}{c_PT_1}\right) = -\varepsilon\beta^{\varepsilon-1}+\tau\varepsilon\beta^{-\varepsilon-1} = 0 \Leftrightarrow \beta = \tau^{1\over2\varepsilon} \]
+	
+	GRAFICO RENDIMENTO 
+	
+	Sapendo che, genericamente $\tau = {1300\over300}\simeq4.33$ e per l'aria $\varepsilon=0.27$, valori ottimali del rendimento si trovano per $\beta^\text{ott}=15$, mentre i reali valori del rapporto di compressione si aggirano intorno a $\beta^\text{re} = 80\div10$. \newline 
+	
+	Per aumentare il rendimento si cerca di ottenere un $\beta$ sempre crescente, tuttavia si è appena visto che per aumentare il lavoro $\beta$ dev'essere limitato, ci cerca così un compromesso tra $\eta$ ed $l$, per cui, il grafico del rendimento diviene limitato per 
+	\[\eta_{\max} = 1- \dfrac{T_3}{T_1}\]
+	
+	Disegno del grafico del rendimento limitato
+\end{adjustwidth}	
+\section{Analisi del ciclo limite}
+\begin{adjustwidth}{2in}{}
+	Nello studio del ciclo limite si studieranno i fluidi con $c_P=f(t)$ e si considererà il fatto che, essendoci una combustione in seno al fluido, questa comporterà una variazione di portata e delle proprietà dello stesso. 
+\end{adjustwidth}
+\subsection{Effetto del $c_P$ sul rendimento}
+\begin{adjustwidth}{2in}{}
+	\[\eta = 1 - \dfrac{q_2}{q_1}\]
+	Noto che
+	\[q = \int c_P dT = \bar{c_P}\Delta T\]
+	Allora poiché $q_1$ è scambiato lungo la trasformazione $23$ mentre$q_2$ lungo la $14$, si può scrivere
+	\[\eta = 1 - \dfrac{\bar{c_P}_{14}(T_4-T_1)}{\bar{c_P}_{23}(T_3-T_2)}\]
+	Definendo 
+	\[\gamma = \dfrac{\bar{c_P}_{14}}{\bar{c_P}_{23}}\]
+	Si giunge a  
+	\[\eta = 1 - \gamma\dfrac{T_4-T_1}{T_3-T_2}\]
+	Pertanto, minore sarà il coefficiente $\gamma$ e maggiore sarà il rendimento 
+	\[\gamma <1 \Leftrightarrow\bar{c_P}_{14}<\bar{c_P}_{23} \]
+	Importante notare che essendo $c_P$ variabile con la temperatura, tutti i parametri da esso dipendenti dovranno essere calcolati portando a convergenza un procedimento iterativo.
+	\[\eta = 1 - \gamma\dfrac{T_1}{T_2}\cdot\dfrac{\dfrac{T_3}{T_1}\dfrac{T_4}{T_3}-1}{\dfrac{T_3}{T_1}\dfrac{T_1}{T_2} -1} = 1 - \dfrac{\gamma}{\beta^{\varepsilon_c}}\cdot\dfrac{\dfrac{\tau}{\beta^{\varepsilon_e}}-1}{\dfrac{\tau}{\beta^{\varepsilon_c}}-1}\]
+	Dove $c$ ed $e$ stanno ad indicare le trasformazioni di compressione ed espansione: 
+	poiché $\varepsilon= f(k)$ e $k = f(c_P)$ e $c_P = f(T)$ e la temperatura varia durante il ciclo, $\varepsilon_c\ne\varepsilon_e$.
+\end{adjustwidth}	
+\subsection{Combustione reale}
+\begin{adjustwidth}{2in}{}
+	Il processo di combustione reale si analizza considerando il fatto che il ciclo, essendo aperto, permette l'immissione di una certa quantità di fluido e di combustibile. 
+	
+	DISEGNO schematico
+	
+	Generalmente si utilizza come combustibile il metano, viene iniettato alla pressione di entrata del fluido ed è caratterizzato da un potere calorifero inferiore pari a 
+	\[H_i = 50~\dfrac{\text{MJ}}{\text{kg}}\]
+	Questa è l'energia sprigionata dal combustibile quando prende parte alla reazione. \newline 
+	
+	Il bilancio entalpico alla camera di combustione è 
+	\[\dot{m}_ac_PT_2 = \dot{m}_cc_PT_2 + \dot{m}_cH_i = (\dot{m}_a+\dot{m}_c)c_PT_3\]
+	
+	La reazione di combustione del metano è 
+	\[CH_4+2O_2 \rightarrow CO_2 + 2H_2O\]
+	
+	In realtà il combustibile è caratterizzato anche da un potere calorifero superiore $H_s$, dipendente dal calore latente dell'acqua che prende parte alla reazione, ma dato he nel ciclo turbina a gas si hanno facilmente temperature superiori ai $1000~\text{K}$, si usa solamente l'$H_i$ che invece non tiene conto dell'acqua in evaporazione. \newline 
+	
+	Il bilancio alla camera di combustione diviene 
+	\[(\dot{m}_a+\dot{m}_c)\underbrace{c_P(T_3-T_2)}_{q_1} = \dot{m}_cH_i\] 
+	Normalizzando per la massa del condensatore si ottiene 
+	\[\left(\dfrac{\dot{m}_a}{\dot{m}_c}+\dfrac{\dot{m}_c}{\dot{m}_c}\right)q_1 = \dfrac{\dot{m}_c}{\dot{m}_c}H_i\] 
+	Definendo il rapporto
+	\[\alpha = \dfrac{\dot{m}_a}{\dot{m}_c}\]
+	Si ottiene 
+	\[\alpha + 1 = q_1 = H_i \Rightarrow q_1 = \dfrac{H_i}{\alpha-1}\]
+	
+	L'aria è in eccesso o in difetto rispetto a quella che serve nel combustore? 
+	
+	Dal bilancio stechiometrico si trova che 
+	\[\begin{aligned}
+		\begin{matrix}
+			\dot{m}_{CH_4}  =  {1\over2}\dot{m}_{O_2} \\
+			\dot{m}_{CH_4}  =  \dot{n}_{CH_4}MM_{CH_4} \\
+			\dot{m}_{O_2}  =  \dot{n}_{O_2}MM_{O_2} \\
+		\end{matrix}
+	\end{aligned}\Rightarrow\dot{m}_{O_2} = 2\dfrac{MM_{O_2}}{MM_{CH_4}}\dot{m}_{CH_4} = 3.989\dot{m}_{CH_4}\]
+	Dato che negli impianti turbogas si lavora con aria, l'ossigeno in aria è pari al 22\%, per cui
+	\[\dot{m}_{aria} = \dfrac{\dot{m}_{O_2}}{0.22} = 18.1\dot{m}_{CH_4}\]
+	In questo modo si è trovato che $\alpha_{stechiometrico} = 18.1$. 
+	
+	Operativamente, se 
+	\[\begin{split}
+		T_1 = 300K, H_1 = 50 \dfrac{MJ}{kg}, \beta=9 \Rightarrow T_2 = 549K, T_3 = 1250 K, \bar{c_P} \approx 1.1 \dfrac{kJ}{kgK} \\ \Rightarrow Q_1 = 1045 \dfrac{kJ}{kg} \Rightarrow \alpha = 46.84
+	\end{split}\]
+	Ci si trova allora in eccesso di ossigeno del 61\%
+	\[e = \dfrac{\alpha - \alpha_{stechiometrico}}{\alpha_{stechiometrico}} = 0.613\]
+	
+	Come affligge l'eccesso di ossigeno i parametri di lavoro? 
+	
+	Il \textbf{lavoro} estratto da un ciclo turbogas è pari alla differenza tra quello estratto dalla turbina e quello che serve per muovere il compressore 
+	\[l = l_t-l_c = c_P(T_3-T_4)-c_P(T_2-T_1) \qquad \dfrac{l}{c_PT_1} = 1 + \tau - \beta^\varepsilon - \dfrac{\tau}{\beta^\varepsilon}\]
+	Se ora si considera la variazione di massa si può scrivere, per il lavoro di turbina e di compressore
+	\[l = c_P(\dot{m}_a + \dot{m}_c)(T_3-T_4) - c_P\dot{m}_a(T_2-T_1)\]
+	Dividendo per la portata d'aria
+	\[l = c_P\left(\dfrac{\dot{m}_a}{\dot{m}_a} + \dfrac{\dot{m}_c}{\dot{m}_a}\right)(T_3-T_4) - c_P\dfrac{\dot{m}_a}{\dot{m}_a}(T_2-T_1) = c_P\left(1 + \dfrac{1}{\alpha}\right)(T_3-T_4) - c_P(T_2-T_1) \]
+	\[l = c_P\dfrac{\alpha+1}{\alpha}(T_3-T_4) - c_P(T_2-T_1) \qquad  \dfrac{l}{c_PT_1} = 1 + \dfrac{\alpha+1}{\alpha}\tau - \beta^\varepsilon - \dfrac{\alpha+1}{\alpha}\dfrac{\tau}{\beta^\varepsilon}\]
+	Per capire se la trattazione è effettuabile senza considerare la variazione di massa è necessario valutarne l'errore, per cui
+	\[\Delta = \dfrac{l_\text{lim}}{l_{alpha}} = \dfrac{\tau}{\alpha}\left(1-\dfrac{1}{\beta^\varepsilon}\right)\]
+	Che per valori tipici di $\beta = 9, \tau = 4.27, \alpha = 53.8$ porta ad un $\Delta = 3.33 \%$ superiore al limite dell'1\% nel quale un'approssimazione ingegneristica risulta valida. \newline 
+	
+	La variazione della portata è un fattore determinante e non trascurabile nella formulazione del lavoro \newline 
+	
+	Il \textbf{rendimento} varia anch'esso con la massa? 
+	
+	Questo era pari a 
+	\[\eta_{lim} = \eta_{id} = 1 - \dfrac{1}{\beta^\varepsilon}\]
+	Ora si può scrivere 
+	\[
+	\begin{split}
+		\eta_\alpha = \dfrac{l_t-l_c}{q_1} = \dfrac{(\alpha+1)c_P(T_3-T_4)-\alpha c_P(T_2-T_1)}{c_P\left[(\alpha+1)T_3 - \alpha T_2\right]} = \dfrac{(\alpha+1)T_4-\alpha T_1}{(\alpha+1)T_3-\alpha T_2} = \\ 1-\dfrac{T_1}{T_2}\cdot\dfrac{(\alpha+1)\dfrac{\tau}{\beta^\varepsilon}-\alpha}{(\alpha+1)\dfrac{\tau}{\beta^\varepsilon}-\alpha} = 1-\dfrac{T_1}{T_2}
+	\end{split}
+	\]
+	\[\eta_{lim} = \eta_\alpha = 1 - \dfrac{1}{\beta^\varepsilon}\]
+	La differenza di portata non affligge in alcun modo il rendimento perché influenza il lavoro ed il calore in ingresso $q_1$ in egual modo. 		
+\end{adjustwidth}
+
+\section{Analisi del ciclo reale}
+\begin{adjustwidth}{2in}{}
+	Il \textbf{rendimento reale} sarà tale per cui 
+	\[\eta_R = \dfrac{l_R}{q_{1R}} = \dfrac{l_t^R - l_t^R}{q_{1R}}\]
+	Di complicata valutazione, si definisce allora il rendimento interno come 
+	\[\eta_i = \dfrac{\eta_R}{\eta_{lim}}\]
+	\begin{equation}\label{eq:2.2}
+		\boxed{\eta_i = \underbrace{\dfrac{q_1}{q_{1R}}}_{\theta}\cdot\dfrac{l_t^R - l_c^R}{l_t - l_c}}
+	\end{equation}
+	In questo modo, potendo calcolare piuttosto agevolmente il rendimento del ciclo limite ed essendo noto dalla letteratura il rendimento interno, sarà possibile ricavare il rendimento reale. 
+	\[\eta_R = \eta_{lim}\eta_i = \left(1-\dfrac{1}{\beta^\varepsilon}\right)\eta_i\]	
+	
+	DIAGRAMMA DEL CICLO REALE 
+	
+	In un ciclo reale le trasformazioni di compressione e di espansione non sono più isoentropiche, allora dovrà valere: 
+	\[T_{2'}>T_2 \Rightarrow q_R<q_{lim} \qquad \theta_1 = 1.03\div1.05\]
+	Ovvero, in formule, a partire dal rendimento del compressore, si può scrivere 
+	\[\eta_c = \dfrac{l_c}{l_c^R} = \dfrac{c_P(T_2-T_1)}{c_P(T_{2'}-T_1)} = \dfrac{T_2-T_1}{T_{2'}-T_1} \Rightarrow T_{2'} = T_1 + \dfrac{T_2-T_1}{\eta_c}\]
+	E quindi
+	\[\theta = \dfrac{c_P(T_3-T_2)}{c_P(T_3-T_{2'})} = \dfrac{T_3-T_2}{T_3 - T_1 - \dfrac{T_2-T_1}{\eta_c}} = \dfrac{\dfrac{1}{T_1}}{\dfrac{1}{T_1}}\cdot\dfrac{T_3-T_2}{T_3 - T_1 - \dfrac{T_2-T_1}{\eta_c}}\]
+	Portando a 
+	\[\theta = \dfrac{\tau-\beta^\varepsilon}{\tau - 1 - \dfrac{\beta^\varepsilon-1}{\eta_c}}\]
+	Questa equazione può essere riscritta, aggiungendo e sottraendo $\beta^\varepsilon$ al denominatore
+	\[\theta = \dfrac{\tau-\beta^\varepsilon}{\tau - 1 - \dfrac{\beta^\varepsilon}{\eta_c}- \dfrac{1}{\eta_c}- \beta^\varepsilon + \beta^\varepsilon} \]
+	Si ottiene 
+	\[\dfrac{1}{\theta} = 1- \dfrac{(\beta^\varepsilon -1)\left(\dfrac{1}{\eta_c}-1\right)}{\tau - \beta^\varepsilon}\]
+	Col risultato che il ciclo reale migliora quello ideale: è necessario fornire meno calore in ingresso. \newline 
+	
+	Per sviluppare il secondo termine dalla (\ref{eq:2.boh}), ci si ricorda che il rendimento di turbina è pari a
+	\[\eta_t = \dfrac{l_t^R}{l_t} = \dfrac{c_P(T_3-T_{4'})}{c_P(T_3-T_4)} \approx \dfrac{T_3-T_{4'}}{T_3-T_4}\]
+	Allora, mettendo insieme 
+	\[l_t\eta_t = l_t^R \qquad \dfrac{l_c}{\eta_c} = l_c^R\]
+	Si può scrivere la (\ref{eq:2.2}) come 
+	\[\eta_i = \theta \dfrac{l_t\eta_t - \dfrac{l_c}{\eta_c}}{l_t-l_c}\]
+	\textbf{NB:} Nella turbina il lavoro estraibile è minore nel caso reale; nel compressore il lavoro da fornire è maggiore nel caso reale: il rendimento va a diminuire il lavoro turbina e ad aumentare il lavoro compressore. 
+	\[\eta_i = \theta \dfrac{l_t\eta_t - \dfrac{l_c}{\eta_c}}{l_t-l_c}\cdot	\dfrac{\eta_c}{\eta_c}\dfrac{\nicefrac{1}{l_t}}{\nicefrac{1}{l_t}} = \dfrac{\theta}{\eta_c} \dfrac{\eta_c\eta_t - \dfrac{l_c}{l_t}}{1-\dfrac{l_c}{l_t}} = \dfrac{\theta}{\eta_c} \dfrac{-1+\eta_c\eta_t +1 - \dfrac{l_c}{l_t}}{1-\dfrac{l_c}{l_t}}\]
+	\[\eta_i = \dfrac{\theta}{\eta_c} \left(1-\dfrac{1-\eta_c\eta_t}{1-\dfrac{l_c}{l_t}}\right)\]
+	Il termine $\dfrac{l_c}{l_t}$ si può scrivere come 
+	\[\dfrac{l_c}{l_t} = \dfrac{c_P(T_2-T_1)}{c_P(T_3-T_4)}\approx \dfrac{T_2-T_1}{T_3-T_4} = \dfrac{T_2}{T_3}\dfrac{1-\dfrac{T_1}{T_2}}{1-\dfrac{T_4}{T_3}} = \dfrac{T_1}{T_3}\dfrac{T_2}{T_1}\dfrac{1-\dfrac{1}{\beta^\varepsilon}}{1-\dfrac{1}{\beta^\varepsilon}}= \dfrac{\beta^\varepsilon}{\tau}\]
+	Si ottiene così
+	\begin{equation}\label{eq:2.3}
+		\boxed{\eta_i = \dfrac{\theta}{\eta_c} \left(1-\dfrac{1-\eta_c\eta_t}{1-\dfrac{\beta^\varepsilon}{\tau}}\right)} 
+	\end{equation}
+	E quindi, in definitiva 
+	\begin{equation} \label{eq:2.4}
+		\boxed{\eta_R = \eta_{lim}\eta_i = \left(1-\dfrac{1}{\beta^\varepsilon}\right) \dfrac{\theta}{\eta_c} \left(1-\dfrac{1-\eta_c\eta_t}{1-\dfrac{\beta^\varepsilon}{\tau}}\right)}
+	\end{equation} 
+	
+	GRAFICO dei tre rendimenti
+	
+	Un impianto turbogas è produttivo solo quando il rendimento globale 
+	\[\eta_G = \eta_R\eta_{M/O}>0\]
+	Si è introdotto il termine $\eta_{M/O}$, il rendimento meccanico/organico dovuto a tutte le perdite relative all'impianto (cinematiche, inerziali, organi ausiliari); mentre questo è un dato di progetto poco malleabile, può essere lavorabile il termine $\eta_R$, infatti dalla definizione 
+	\[\eta_R >0 \Rightarrow \eta_{lim}\eta_i>0\]
+	Per cui se $\beta>1\Rightarrow\eta_{lim}>0$, rimane allora da identificare una condizione sul rendimento interno
+	\[\eta_i>0\Leftrightarrow1-\dfrac{1-\eta_c\eta_t}{1-\dfrac{\beta^\varepsilon}{\tau}}>0 \Leftrightarrow \eta_c\eta_t>\dfrac{\beta^\varepsilon}{\tau}\]
+	Aumentare $\tau$ per verificare la disequazione sarebbe la strada più facile da percorrere se non si incappasse in problemi di natura tecnologica, si sceglie allora di lavorare sul termine di sinistra $\eta_c\eta_t$.
+	
+	Per quanto riguarda $\eta_c$ si può individuare la tipologia di compressori che siano il giusto compromesso tra rendimento elevato e portata da smaltire. 
+	\begin{itemize}
+		\item Compressori volumetrici alternativi: rendimento elevato ma portate scarse
+		\item Compressori dinamici centrifughi: basso rendimento
+		\item Compressori dinamici assiali: elevato rendimento $(\sim90\%)$, portate evolventi elevate
+	\end{itemize}
+	Ovviamente, ci si lascia guidare dalla termodinamica
+	
+	DISEGNO DIAGRAMMA 
+	
+	\begin{itemize}
+		\item Aumentare $\eta_c$ significa avvicinare 2'a 2: si migliora l'effetto Clausius, si peggiora quello di molteplicità delle sorgenti.
+		\item Aumentare $\eta_t$ significa avvicinare 4'a 4: si migliora l'effetto Clausius e migliorare l'effetto di molteplicità delle sorgenti: si riduce la gamma di temperature alla quale si cambia calore. 
+		
+		Tecnologicamente, per quanto riguarda $\eta_t$ si è raggiunto il massimo auspicabile 
+	\end{itemize}
+	
+	Per analizzare i due rendimenti si passa attraverso il rendimento politropico di compressore e turbina
+\end{adjustwidth}
+\vspace{1cm}
+	\[\eta_R = 1-\dfrac{q_2^R}{q_1^R} = 1-\dfrac{c_P(T_{4'}-T_1)}{c_P(T_3-T_{2'})} = 1-\dfrac{T_1}{T_{2'}}\dfrac{\dfrac{T_{4'}}{T_1}-1}{\dfrac{T_3}{T_{2'}}-1} = 1-\dfrac{1}{\beta^{\varepsilon\eta_c^{pol}}}\dfrac{\dfrac{\tau}{\beta^{\varepsilon\eta_t^{pol}}}-1}{\dfrac{\tau}{\beta^{\varepsilon\eta_c^{pol}}}-1} = 1-\dfrac{1}{\beta^{\varepsilon\eta_c^{pol}}} \dfrac{\tau-\beta^{\varepsilon\eta_t^{pol}}}{\tau - \beta^{\varepsilon\over\eta_c^{pol}}}\]
+\vspace{1cm}
+\begin{adjustwidth}{2in}{}
+	
+	DISEGNO DIAGRAMMA RENDIMENTO REALE
+	
+	Il massimo si alza ovviamente alzando $\tau$ e quindi $T_3$, questo si porta dietro giocoforza anche un aumento di $\beta$.  
+	
+	Ciò è giustificato dal fatto che, in espansione 
+	\[T_{4'} = \dfrac{T_3}{\beta^{\varepsilon\eta_t^{pol}}}\]
+	Se $T_3$ sale, cresce anche $T_{4'}$, questa si configura però come uno scarto energetico; in generale $T_{4'}$ è la temperatura dei fumi che vengono immessi a pressione ambiente e quindi non possono più essere espansi, allora per mantenere un valore di $T_{4'}$ accettabile, all'aumento di $T_3$ deve contestualmente aumentare anche $\beta$.
+	
+	Diagramma Rendimento politropico
+	
+	Il \textbf{lavoro reale} parimenti si può scrivere 
+	\[l_R =  l_t^R - l_c^R = \eta_tl_t - \dfrac{l_c}{\eta_c} = c_P\eta_T(T_3-T_4) - \dfrac{c_P}{\eta_c}(T_2-T_1)\]
+	Il rapporto di compressione che massimizza il lavoro si trova come 
+	\[\dfrac{dl_R}{d\beta} = \eta_t\tau(-\varepsilon\beta^{-\varepsilon-1})-\dfrac{1}{\eta_c}\varepsilon\beta^{\varepsilon-1} =0 \Leftrightarrow \beta = (\tau\eta_c\eta_t)^{\nicefrac{1}{2\varepsilon}}\]
+	Un parametro che fornisce informazioni sui dispositivi di energia è la cosiddetta \textit{densità di potenza}" \({kW\over m^3}\quad{kW \over kg}\), questa è particolarmente utile per i sistemi di volo, dove si tende, a parità di peso e ingombro del sistema propulsivo, ad avere più potenza e quindi miglio condizioni di volo, si usa perciò un $\beta$ che massimizzi il lavoro. 
+	
+	Per applicazioni stazionarie, dato che non si hanno né problemi di ingombro né di peso, si predilige lavorare con un $\beta$ che massimizzi l'efficienza. 	
+\end{adjustwidth}	
+
+
+
+
+\section{Regolazione della potenza}
+\begin{adjustwidth}{2in}{}	
+	
+	DIAGRAMMA 
+	
+	Con lo scopo di mantenere l'equilibrio tra richiesta e produzione sulla rete elettrica, ci si pone come obiettivo quello di regolare la potenza in uscita dall'impianto.
+	\[\underline{P} = \dot{m}l\]
+	\begin{itemize}
+		\item \textbf{Regolazione della velocità della macchina termica}\\
+		
+		Pratica ma non attuabile per sistemi connessi alla rete elettrica nazionale dove al massimo si possono raggiungere i 3000 rpm; non c'è libertà, in più se si aggiungono riduttori si va a peggiorare il $\eta_{M/O}$
+		
+		\item \textbf{Palettatura della macchina termica a calettamento variabile}\\
+		
+		Agendo sulla palettatura si modifica la portata; tecnologie e costi avanzati.
+		
+		\item \textbf{Modifica del lavoro specifico} \\
+		
+		Diminuendo la portata di combustibile si alza il parametro $\alpha$ e si abbassa la temperatura $T_3$ di fine combustione (\textcolor{blue}{$\Delta h^*<\Delta h$}), tuttavia questo affligge il rendimento interno
+		\[\eta_i = f(\tau, \eta_t)\qquad T_3\downarrow~\Rightarrow~\tau\downarrow~\eta_t\downarrow\]
+		Questo perché, concentrandosi sulle palettature della turbina, a pari velocità $u$ riducendo il $\Delta h$ si riduce la componente $c_1$: si sta riducendo il valore di $k_P = \dfrac{u}{c_1}$, ci si sta allontanando dal valore ottimale con conseguente calo della $\eta_t$. 
+		
+		In questo modo, poiché deve essere 
+		\[l_c \simeq {2\over3}l_t\Rightarrow l_{\text{utile}} = {1\over3}l_t\]
+		Allora ridurre del 50\% il lavoro utile significa ridurre solamente di ${1\over6}$ il lavoro della turbina, perché quei $2\over3$ che vengono forniti al compressore è necessario continuare a fornirglieli per il suo corretto funzionamento; significa quindi passare da un carico del 100\% ad un carico dell'83\%. 
+		
+	\end{itemize}
+\end{adjustwidth}	
+
+
+\section{Ciclo chiuso}
+\begin{adjustwidth}{2in}{}	
+	
+	IMPIANTO
+	
+	L'impianto ciclico a circuito chiuso da punto di vista pratico ha in se numerosi vantaggi. 
+	
+	\begin{itemize}
+		\item Possibilità di utilizzo di un fluidi diverso dell'aria, dalle caratteristiche termodinamiche favorevoli
+		\begin{itemize}
+			\item $C0_2$, triatomico, $c_P^{C0_2}>c_P^{\text{aria}}$ a pari condizioni operative si ottengono un lavoro ed una potenza estratta maggiori. 
+			
+			Se esposta a nitruri, non si attiva dal punto di vista radioattivo, è inerte all'attivazione nucleare. 
+			
+			\item $He$, monoatomico, $k^{He}>k^{\text{aria}}\Rightarrow \varepsilon\uparrow\Rightarrow\eta = 1-{1\over\beta^\varepsilon} \uparrow$ e quindi is ottiene un rendimento maggiore.
+		\end{itemize}
+		
+		\item Si può variare la pressione di base, non si è più vincolati a quella ambiente
+		\begin{itemize}
+			\item $\rho\propto P$, a pari temperature si può ridurre l'ingombro del sistema
+			\item Tuttavia va sempre reintegrata una certa quantità di flusso alla pressione di base, e questo comporta sistemi più complessi di pompaggio.
+		\end{itemize}
+		
+		\item All'interno del ciclo non avviene la combustione, si evita quindi la corrosione dovuta ai fumi della combustione, in più, si può usare un combustibile poco pregiato che dia molti residui, come la frazioni bassa del petrolio. 
+		
+		\item Un altro vantaggio è dato dalla possibilità di variazione della pressione di base. 
+		
+		DIAGRAMMA 
+		
+		Infatti a parità di $\beta$ e $\tau$, regolando la $P_1$ a pari volume, si aumenta la densità, e quindi la massa elaborata, la portata: si può regolare la potenza dell'impianto regolando la pressione di base lasciando inalterata la velocità di rotazione della macchina termica. 
+	\end{itemize}
+	
+	\vspace{0.5cm}
+	
+	Di contro, il circuito chiuso presenta svantaggi come 
+	\begin{itemize}
+		\item L'inserimento di più componenti voluminosi e costosi
+		\item Lunghi tempi di installazione ed alto costo d'impianto
+	\end{itemize}
+	
+\end{adjustwidth}
+
+
+
+
+\section{Rigenerazione termica}
+\begin{adjustwidth}{2in}{}	
+	
+	IMPIANTO
+	
+	L'impianto rigenerato permette un aumento dell'efficienza dato dalla diminuzione di calore da fornire; Tra il compressore re la turbina, prima della camera di combustione viene posto uno scambiatore di calore dove i gas, in uscita dalla turbina, preriscaldano l'aria in ingresso alla camera di combustione. 
+	
+	DIAGRAMMA 
+	
+	Non sempre è indicato effettuare la rigenerazione in un impianto turbogas, infatti, oltre a dover aggiungere il voluminoso e costoso corpo del rigeneratore, affinché sia possibile generare deve essere 
+	\[T_{4'}\gg T_{2'}\]
+	Altrimenti i fumi che fuoriescono dalla turbina non riescono a scaldare l'aria all'interno dello scambiatore. \newline 
+	
+	Per trovare il valore limite di $T_{2'}$ si passa attraverso il rapporto di compressione $\beta$, un aumento di questo infatti comporta anche una crescita di $T_{2'}$ mentre $T_{4'}$ rimane pressoché invariato: ci sarà allora un $\beta$ oltre il quale sarà impossibile rigenerare. \newline 
+	
+	Per il ciclo limite 
+	\[T_4 = T_2 \Rightarrow \dfrac{T_4}{T_3}\dfrac{T_3}{T_1} = \dfrac{T_2}{T_1} \Rightarrow \dfrac{\tau}{\beta^\varepsilon}=\beta^\varepsilon\]
+	Allora 
+	\begin{equation}\label{eq:2.5}
+		\boxed{\beta_{lim} = \tau^{\nicefrac{1}{2\varepsilon}}}
+	\end{equation}  
+	
+	Per il ciclo reale si risolve per sostituzione finché non si ottiene la verifica dell'identità
+	\begin{equation}\label{eq:2.6}
+		\boxed{\eta_c(\tau-1) - \eta_c\eta_t\tau(1-\dfrac{1}{\beta^\varepsilon}) - (\beta^\varepsilon-1) = 0}
+	\end{equation}
+	
+	\textbf{NB:} sebbene $\beta$ sia legato al lavoro massimo, la rigenerazione influenza il rendimento e non il lavoro. 	
+\end{adjustwidth}
+
+
+
+
+
+\subsection{Grado di rigenerazione}
+\begin{adjustwidth}{2in}{}
+	In realtà non si verificherà mai la rigenerazione completa ma ci si attesterà intorno ad un $(70\div80)\%$	
+	
+	DIAGRAMMA CON T E Q
+	
+	Nella rigenerazione completa $ R=1 \Rightarrow \begin{cases}
+		T_Q = T_{2'} \\ 
+		T_P = T_{4'}
+	\end{cases}$ 
+	\[\eta_R = 1 - \dfrac{q_{2R}}{q_{1R}} = 1 - \dfrac{c_P(T_Q-T_1)}{c_P(T_3-T_P)} = 1 - \dfrac{T_{2'}-T_1}{T_3-T_{4'}} = 1 - \dfrac{1}{\eta_c\eta_t}\dfrac{\beta^\varepsilon-1}{1-\dfrac{1}{\beta^\varepsilon}}\]
+	\begin{equation}\label{eq:2.7}
+		\boxed{\eta^R_R = 1 - \dfrac{\beta^\varepsilon}{\eta_c\eta_t\tau}}
+	\end{equation}
+	Notare come per il ciclo limite il rendimento per ciclo turbogas con rigenerazione valga 
+	\[\boxed{\eta^R_{lim} = 1 - \dfrac{\beta^\varepsilon}{\tau}}\]
+	Essendo $\eta_c=\eta_t=1$
+	
+	GRAFICI DEI RENDIMENTi LIMITE
+	
+	Notare come si ottiene un incremento di efficienza maggiore per $\beta$ minori: si sta riducendo l'effetto di molteplicità delle sorgenti, si allarga la zona rigenerata e al limite per $\beta\rightarrow1$ non si introduce calore dall'esterno, si recupera totalmente.
+	
+	GRAFICO con scritte DEI RENDIMENTEI REALI
+	
+	Nella realtà il grado di rigenerazione non è mai unitario $R\ne1$, non è mai possibile effettuare una rigenerazione completa
+	
+	NUOVO DIAGRAMMA CON P'e Q'
+	
+	\[\begin{cases}
+		Q'>Q \\
+		P'<P
+	\end{cases}\]
+	Allora diviene possibile definire il grado di reazione come
+	\[R = \dfrac{c_P(T_{4'}-T_{Q'})}{c_P(T_{4'}-T_{Q})} = \dfrac{c_P(T_{4'}-T_{Q'})}{c_P(T_{4'}-T_{2'})} \]
+	Dove al denominatore c'è la quantità di calore che diviene possibile cedere solo se lo scambiatore fosse a superficie infinita. \newline 
+	
+	È possibile scrivere i calori in ingresso e uscita come, rispettivamente
+	\[q_{1R} = c_P(T_3-T_{4'}) + (1-R)c_P(T_{4'}-T_{2'})\]
+	\[q_{2R} = c_P(T_{2'}-T_1) + (1-R)c_P(T_{4'}-T_{2'})\]
+	Allora il rendimento reale del ciclo rigenerato, in funzione del grado di rigenerazione diviene
+	\[\eta_R^R(R) = \dfrac{1}{\eta_c}\dfrac{\eta_c\eta_t\left(1-\dfrac{1}{\beta^\varepsilon}\right) - \dfrac{1}{\tau}(\beta^\varepsilon-1)}{\eta_c\left(1-\dfrac{1}{\beta^\varepsilon}\right) - (1-R)\left[\eta_t\left(1-\dfrac{1}{\beta^\varepsilon}\right)-1+\dfrac{1}{\tau}\left(\dfrac{\beta^\varepsilon-1}{\eta_c}+1\right)\right]}\]
+	Questa formula è stata riportata per completezza di trattazione, l'importante è l'analisi del grafico che ne deriva
+	
+	DISEGNO
+	
+	Nella realtà, dal ciclo rigenerato si osserva per l'utilizzo di uno scambiatore via via più grande, un incremento di rendimento minore. 
+	
+	Ad oggi la rigenerazione negli impianti turbogas è limitata a micro-turbine dai 10 kW, dove per ottenere macchine compatte è necessario avere un $\beta$ limitato e quindi la rigenerazione porta vantaggio. 
+\end{adjustwidth}
+
+
+
+
+
+\section{Interrefrigerazione}
+\begin{adjustwidth}{2in}{}
+	
+	DISEGNO SCHEMA
+	
+	Attraverso l'interrefrigerazione si aumenta la potenza specifica attraverso la riduzione del lavoro di compressione. \newline 
+	
+	Si definiscono 
+	\[\beta_1 = \dfrac{P_{2'}}{P_1}\qquad \beta_2 = \dfrac{P_{2'''}}{P_{2'}}\]
+	In modo che 
+	\[\beta = \beta_1\beta_2\]
+	Il lavoro di compressione infatti è pari a
+	\[l_c = \int_{1}^{2}vdP = \int_{1}^{2}\dfrac{dP}{\rho}\]
+	Abbassando la temperatura, la densità è costretta a salire, per cui il lavoro di compressione diminuirà.
+	
+	DIAGRAMMA 
+	
+	
+	Infatti, comparando i lavori di compressione si ha, nel caso NON interrefrigerato
+	\[l_c = c_P(T_2-T_1) = c_P(T_2-T_{2'}) + c_P(T_{2'}-T_1)\]
+	Mentre in quello interrefrigerato
+	\[l_c^{IR} = \underbrace{c_P(T_{2'''}-T_{2''})}_{(**)} + c_P(T_{2'}-T_1)\]
+	Il termine (**) indica nient'altro che la riduzione del lavoro di compressione, infatti
+	\[T_{2'''}-T_{2''}<T_{2'}-T_1\]
+	Per cui
+	\[l_c - l_c^{IR} = c_PT_{2'}(\beta_2^\varepsilon-1) - c_PT_{2''}(\beta_2^\varepsilon)>0 \qquad T_{2'} > T_{2''}\]
+	Sebbene il lavoro di compressione diminuisca, di contro, proprio perché poi sarà necessario scaldare di più il fluido in camera di combustione, anche il rendimento diminuirà. \newline 
+	
+	Dividendo il ciclo in due sottocicli aggiungendo la trasformazione 2'2, si ottiene 
+	
+	DIAGRAMMA 
+	
+	\[\eta_{IR} = \dfrac{\eta_IQ_{1,I} + \eta_{II}Q_{1,II}}{Q_{1,I} + Q_{1,II}}<\eta_{1234}\]
+	Il rendimento minore della coppia è $\eta_{I}$, si aumenta la gamma di temperature alla quale si scambia calore, si peggiora l'effetto di molteplicità delle sorgenti. 
+\end{adjustwidth}
+
+
+
+
+
+\section{Post-Combustione}
+\begin{adjustwidth}{2in}{}
+	
+	IMPIANTO 
+	
+	Attraverso la post combustione si aumenta il lavoro utile aumentando il lavoro di turbina
+	
+	DIAGRAMMA 
+	
+	Anche in questo caso si definiscono
+	\[\beta_1 = \dfrac{P_{3}}{P_{4'}}\qquad \beta_2 = \dfrac{P_{4''}}{P_{4'''}}\]
+	In modo che 
+	\[\beta = \beta_1\beta_2\]
+	Il lavoro di espansione infatti è pari a
+	\[l_c = \int_{3}^{4}vdP = \int_{3}^{3}\dfrac{dP}{\rho}\]
+	Diminuendo la densità, quindi aumentando la temperatura, il lavoro di espansione aumenta. \newline 
+	
+	Infatti, comparando i lavori di turbina si ha, nel caso NON post-combusto
+	\[l_t = c_P(T_3-T_4) = c_P(T_3-T_{4'}) + c_P(T_{4'}-T_4)\]
+	Mentre in quello post-combusto
+	\[l_t^{PC} = c_P(T_3-T_{4'}) + \underbrace{c_P(T_{4''}-T_{4'''})}_{(**)}\]
+	Anche qui termine (**) indica nient'altro che l'aumento del lavoro di turbina, infatti
+	\[T_{4''}-T_{4'''}>T_{4'}-T_4\]
+	Per cui
+	\[l_t - l_t^{PC} = c_PT_{4'}\left(1-\dfrac{1}{\beta_2^\varepsilon-1}\right) - c_PT_{4''}\left(1-\dfrac{1}{\beta_2^\varepsilon-1}\right)<0 \qquad T_{4''} > T_{4'}\]
+	
+	Nel caso di post combustione si dimostra che il lavoro viene massimizzato sotto la condizione per cui, il $\beta$ di ogni singolo stadio sia 
+	\[\beta_n = \sqrt[n]{\beta}\]
+	
+	Infine, anche in questo caso, nonostante si migliori il lavoro estratto, si peggiora il rendimento perché si avrà a che fare con una più ampia gamma di temperatura su cui scambiare calore.
+	\[\eta_{PC} = \dfrac{\eta_IQ_{1,I} + \eta_{II}Q_{1,II}}{Q_{1,I} + Q_{1,II}}<\eta_{1234}\]
+	Dove stavolta ad essere il rendimento peggiore è $\eta_{II}$, che abbassa la media dei rendimenti. 
+	
+\end{adjustwidth}
+
+\newpage
+
+\part{Propulsione Aerea}
+\begin{adjustwidth}{2in}{}
+	Qual è il modo più efficace per produrre un effetto propulsivo su di un aeromobile?
+	
+	È necessario contrastare una resistenza all'avanzamento data da 
+	\[R = \dfrac{A}{2}C_R\rho U^2\]
+	In cui $A$ indica la sezione di passaggio e $U$ la velocità di avanzamento nel mezzo. 
+	
+	Produrre un effetto propulsivo significa aumentare la velocità del mezzo, ma aumentare la velocità significa aumentare la resistenza. \newline
+	
+	Si nota subito che $R$ diminuisce se $\rho$ scende, allora come prima soluzione si tende ad innalzare la quota di volo 
+	\[\dfrac{\rho_z}{\rho} = (1-0.0000226z)^{4.256}\]
+	
+	Tuttavia la potenza che è necessario fornire è sempre pari a
+	\[P=R \cdot U = \dfrac{A}{2}\rho C_R U^3\]
+	Quindi anche alzando la quota di volo, non si eliminerà la dipendenza dal cubo della velocità. \newline 
+	
+	Per fornire questa potenza necessarie alla spinta e alla propulsione del mezzo, sono stati studiati negli anni alcuni sistemi energetici sempre più efficienti. 
+	
+	\begin{enumerate}
+		\item \textbf{Motori a combustione interna} (MCI) \textbf{ad aspirazione naturale} (elica)\\
+		Limitati alle basse quote, infatti con le basse densità diminuisce la massa d'aria aspirata all'interno del cilindro e quindi la potenza erogata dal motore. 
+		
+		\item \textbf{MCI sovralimentati}\\
+		
+		IMPIANTO E DIagramma 
+		
+		In questo caso se si aumenta la quota e quindi si diminuisce la densità, sarà necessario un maggior lavoro di compressione, perché sarà necessario comprimere di più, ma allo stesso tempo aumenterà anche il lavoro di turbina perché in egual modo si espanderà di più: il sistema si autoregola. 
+		
+		Tuttavia le isobare per loro natura sono divergenti nei piani $Ts$ ed $hs$, quindi se $\rho$ decresce ulteriormente e il $\Delta h$ in turbina diviene maggiore di quello richiesto in compressione, questo può essere utilizzato per produrre un'espansione in più, e quindi una spinta attraverso un ugello.
+		
+		\item \textbf{Motoreattore} 
+		
+		IMPIANTO E DIagramma 
+		
+		Valendo 
+		\[\Delta h_{44*} = \Delta h_{21}\]
+		Sarà il bilancio della quantità di moto a fornire la spinta necessaria all'avanzamento tramite l'ugello. \newline 
+		
+		E se il MCI fosse sostituito da una vera e propria camera di combustione?
+		
+		\item \textbf{Turboelica}
+		
+		IMPIANTO
+		
+		In questo modo, diviene possibile aumentare sia la temperatura massima che il rapporto di compressione vero e proprio aumentandone il rendimento, il ciclo difiene ufficialmente un turbogas.
+		
+		Tuttavia, aumentando la quota di volo l'elica perde la sua efficacia propulsiva. 
+		
+		\item \textbf{Turbogetto o Turboreattore}\\
+		
+		Si sostituisce l'elica con un diffusore (presa dinamica) e si produce tutta la forza necessaria alla propulsione attraverso un ugello. 
+		
+		Diagramma + impianto
+		
+		\[ h_{34'} =  h_[21']\]
+		Sotto le ipotesi di flusso incomprimibile
+		\[\dfrac{\Delta P}{\rho} = \dfrac{|\Delta w^2|}{2} \Rightarrow \Delta P \simeq 40 kPa\]
+		
+		È sempre necessario un gruppo turbogas? O possono bastare semplicemente la presa dinamica e l'ugello a garantire la spinta? 
+		
+		DIAGRAMMA (fig.9 p250/487)
+		
+		Il punto di fine espansione $4^*$ in turbina si trova ad entalpia superiore di quella del punto $4'$, questo ottenuto solamente attraverso un'espansione in ugello
+		\[h_{4'}<h_{4^*}\]
+		Con la presenza del gruppo turbogas autonomo invece - in virtù del fatto che il compito della turbina sarà unicamente quello di portarsi dietro il compressore - si avrà a disposizione dell'ugello propulsore una caduta entalpica $4^*4$ maggiore della caduta entalpica $4'4$. 
+		
+		Equivalentemente si nota immediatamente che il tendimento del ciclo limite 1234 è maggiore di quello del ciclo 11'5'5, in virtù sia del più elevato rapporto manometrico $\beta$ che del fattore di molteplicità delle sorgenti: ciò significa che a parità di calore $q_1$ fornito in ingresso, il lavoro fornito dal primo ciclo è maggiore di quello fornito dal secondo ciclo. 
+		
+		Tutto ciò a dimostrare che non può esistere turbogetto senza turbogas.
+		
+		
+		\item \textbf{Statoreattore o Autoreattore}
+		
+		DISEGNO
+		
+		Lo statoreattore per funzionare ha bisogno già di un'alta velocità di volo, e se la velocità cresce ancora è possibile che esca al di fuori dell'atmosfera, in questo caso con una bassissima densità ed in assenza di ossigeno si utilizzano serbatoi ausiliari di combustibile e si rimuove il diffusore. 
+		
+		\item \textbf{Sistemi a doppio flusso: Turbofan}\\
+		I sistemi Turbofan presentano principalmente due configurazioni.  		
+		\begin{itemize}
+			\item A singola turbina, che smaltisce lo stesso salto entalpico e ha il compito di far muovere sia il fan che il compressore
+			\item A doppia turbina, dove una turbina di alta pressione (HPT) avrà il compito di muovere il compressore mentre una di bassa pressione (LPT) avrà il compito di muovere il fan
+		\end{itemize} 
+		In ogni caso si definisce il by-pass ratio (BPR) o rapporto di bypass, come il rapporto tra la portata d'aria di flusso freddo (portata secondaria), quella che dopo il fan viene espansa direttamente in un ugello secondario, e la portata d'aria di flusso caldo (portata primaria) ovvero quella parte di aria che prenderà parte alla combustione ed espanderà nell'ugello primario
+		\[BPR = \dfrac{\dot{m}_2}{\dot{m}_1}\]
+		
+		Per completezza si riportano gli schemi di impianto di sistemi Turbofan frontfan ed afterfan a doppia turbina
+		
+		DISEGNi
+		
+		La scelta di separare i flussi è data dal fatto che si perde meno energia se si elabora meno portata alla stessa velocità
+		\[P_\text{persa}\sim\dot{m}w_2^2\]
+		
+		La scelta di applicare un secondo ugello è data invece dalla volontà di recuperare la spinta, infatti separando i flussi dopo il fan si avrebbe una diminuzione di portata evolvente e quindi una conseguente variazione di spinta
+		\[S\sim\dot{m}w_2\]
+		Se si riesce a mantenere costante il prodotto, allora anche la spinta si manterrà costante.	
+	\end{enumerate}		
+\end{adjustwidth}
+
+
+
+\section{Spinta}
+\begin{adjustwidth}{2in}{}
+	
+	DISEGNO
+	
+	Dal teorema della conservazione della quantità di moto
+	\[\vec{F} = \dfrac{\partial}{\partial t}\int_V\rho\vec{c}dV + \int_S\rho\vec{w}\vec{c}\cdot d\vec{s}\]
+	Scegliendo un volume di controllo tale che la velocità relativa sia pari a quella del fluido, si può scrivere 
+	\[\vec{F} = \cancel{\dfrac{\partial}{\partial t}\int_V\rho\vec{w}dV} + \int_S\rho\vec{w}\vec{w}\cdot d\vec{s}\]	
+	In cui diviene possibile trascurare l'integrale di volume sia perché ora il volume di controllo non è più in moto relativo, sia perché ci si pone operare in condizioni stazionarie. 
+	
+	In più, sotto le ipotesi di moto monodimensionale, la velocità relativa non varia all'interno del volume di controllo, per cui si può scrivere, per l'aria di ingresso e per quella di uscita
+	\[\vec{F} = \int_S\rho\vec{w}\vec{w}\cdot d\vec{s}\] 
+	Che sviluppato porta a 
+	\[\vec{F} = \vec{w}\int_{A_1}\rho\vec{w}\cdot d\vec{s} + \vec{w}\int_{A_2}\rho\vec{w}\cdot d\vec{s}\]
+	Se con un abuso di notazione - per la sezione di ingresso - si pone l'aria venire intercettata dal reattore ad una velocità $U$, si può scrivere
+	\[F = -U\dot{m}_a + w_2(\dot{m}_a +\dot{m}_c)\]	
+	In sostanza, in un ugello la spinta si calcola 
+	\[F = (\dot{m}_a +\dot{m}_c)w_2 - \dot{m}_aU\]
+\end{adjustwidth}
+
+
+\subsection{Dinamica del volo}
+\begin{adjustwidth}{2in}{}
+	Analogamente si possono definire la spinta e gli altri parametri in gioco nella propulsione aeronautica, in funzione del coefficiente $\alpha$ calcolato durante la trasformazione di combustione
+	\begin{itemize}
+		\item \textbf{Spinta}
+		\[F = (\alpha+1)w_2 - \alpha U\]
+		\item \textbf{Potenza Utile}
+		\[P_u = F\cdot U\]
+		\item \textbf{Potenza del getto o potenza disponibile}
+		\[P_j = P_d = (\dot{m}_a +\dot{m}_c)\dfrac{w^2_2}{2} - \dot{m}_a\dfrac{U^2}{2}\]
+		\item \textbf{Potenza fornita al fluido}
+		\[P_av = \dot{m}_cH_i\]
+		\item \textbf{Rendimento Termodinamico}
+		\[\eta_{th} = \dfrac{P_j}{P_av}\]
+		\item \textbf{Rendimento Propulsivo}
+		\[\eta_P = \dfrac{P_u}{P_j}\]
+		\item \textbf{Rendimento globale}
+		\[\eta_G = \eta_P\cdot\eta_{th}\]
+	\end{itemize}
+	Per fini teroici rimane tuttavia utile analizzare nella sua forma estesa il rendimento di propulsione, questo è dato dal rapporto tra la potenza utile e quella disponibile o del getto, che per esteso divengono
+	\[P_u = (\alpha+1)Uw_2 - \alpha U^2\]
+	\[P_d = {1\over2}[(\alpha+1)w^2_2 - \alpha U^2 - U^2]\]
+	E quindi
+	\[\eta_P = 2\cdot\dfrac{(\alpha+1)Uw_2 - \alpha U^2}{(\alpha+1)w^2_2 - \alpha U^2 - U^2}\]
+	Normalizzando per $w_2$
+	\[\eta_P = 2\cdot\dfrac{(\alpha+1)\dfrac{U}{w_2} - \alpha \dfrac{U^2}{w_2^2}}{(\alpha+1) - \alpha \dfrac{U^2}{w_2^2} - \dfrac{U^2}{w_2^2}}\]
+	In modo che 
+	\[\eta_P = 1 \Leftrightarrow U = w_2\]
+	Diventa allora necessario individuare $U$ e $w_2$ in modo da avere un $\eta_P$ più alto possibile
+	
+	DISEGNO
+	
+	Lavorare intorno all'unità è problematico perché è una condizione caratterizzata da equilibrio instabile, di solito si lavoro tra 
+	\[\dfrac{U}{w_2^2} = 0.5\div0.9\]
+	C'è la tendenza ad avere una $w_2$ alta perché`in questo modo si innalza la temperatura massima del ciclo e quindi l'ugello elaborerà un salto entalpico maggiore; tuttavia per mantenere un $\eta_P$ di ottimo con una temperatura massima elevata è necessario mantenere altresì una velocità elevata, ma non sempre questo diviene possibile. 
+	
+	Una modifica dello schema impiantistico ricorrente, è quella di adoperare dei sistemi turbofan. 
+\end{adjustwidth}
